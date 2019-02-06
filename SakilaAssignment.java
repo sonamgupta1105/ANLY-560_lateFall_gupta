@@ -37,7 +37,7 @@ public class SakilaAssignment {
 		} catch(Exception e) {
 			throw e;
 		} finally {
-			close();
+			//close();
 		}
 		
 	}
@@ -56,17 +56,17 @@ public class SakilaAssignment {
 			connect = DriverManager.getConnection("jdbc:mysql://localhost/sakila","sakilauser", "sakila123");
 			// Statement to issue SQL queries to the database
 			Statement st = connect.createStatement();
-			//preparedStatement = connect.prepareStatement("Insert into sakila.staff (staff_id,first_name,last_name, address_id, email,store_id, active,username,password) VALUES(3, 'Sonam', 'Gupta', 3, 'SGupta@my.harrisburgu.edu', 1,1,'ssg1105', 'coffee123' )");
 			
-			st.executeUpdate("Insert into sakila.staff (staff_id,first_name,last_name, address_id, email,store_id, active,username,password) VALUES(3, 'Sonam', 'Gupta', 3, 'SGupta@my.harrisburgu.edu', 1,1,'ssg1105', 'coffee123' )");
-			connect.commit();
+			
+			st.executeUpdate("Insert into sakila.staff (staff_id,first_name,last_name, address_id, email,store_id, active,username,password) VALUES(6, 'Sonam', 'Gupta', 7, 'SGupta@my.harrisburgu.edu', 1,1,'ssg1105', 'coffee123' )");
+			//connect.commit();
 			
 			// output results
 			resultSet = statement.executeQuery("select * from sakila.staff");
 			writeResultSet(resultSet);
 
 	    } finally {
-	    	close();
+	    	//close();
 	    }
 	}
 	 
@@ -123,6 +123,7 @@ public class SakilaAssignment {
 		// create an MySQL access object
 		SakilaAssignment dbAccess = new SakilaAssignment();
 		dbAccess.readDatabase();
+		dbAccess.insertRecord();
 
 	}
 
